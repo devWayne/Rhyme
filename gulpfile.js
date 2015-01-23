@@ -3,8 +3,7 @@ var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');    
 var pkg = require('./package.json');
 var dirs = pkg['h5bp-configs'].directories;
-var browserify = require('gulp-browserify');
-
+var browserify = require('browserify');
 
 gulp.task('jshint', function () {
     return gulp.src([

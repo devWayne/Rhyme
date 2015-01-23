@@ -23,7 +23,7 @@
     "run-sequence": "^1.0.1",
     "mocha": "*",
     "should": "*",
-    "gulp-browserify": "~0.5.1"
+    "browserify": "*"
   },
   "h5bp-configs": {
     "directories": {
