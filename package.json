@@ -21,9 +21,9 @@
     "gulp-load-plugins": "^0.7.0",
     "jshint-stylish": "^1.0.0",
     "run-sequence": "^1.0.1",
-    "mocha": "*",
-    "should": "*",
-    "browserify": "*"
+    "browserify": "~3.43.0",
+    "vinyl-source-stream": "~0.1.1",
+    "lodash": "^2.4.1"
   },
   "h5bp-configs": {
     "directories": {
