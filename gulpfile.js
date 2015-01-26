@@ -3,6 +3,7 @@ var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
 var pkg = require('./package.json');
 var dirs = pkg['h5bp-configs'].directories;
+var less=require('gulp-less');
 var _browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var _ = require('lodash');
@@ -19,7 +20,7 @@ gulp.task('browserify-build', function() {
     b.add('./src/js/overlay.js');
     b.add('./src/js/toast.js');
     return b.bundle()
-        .pipe(source('node_modules.js'))
+        .pipe(source('modules.js'))
         .pipe(gulp.dest(dirs.dist))
 });
 
@@ -29,6 +30,12 @@ gulp.task('jshint', function() {
             dirs.src + '/js/*.js'
         ]).pipe(plugins.jshint())
         .pipe(plugins.jshint.reporter('jshint-stylish'))
+});
+
+gulp.task('less',function(){
+    gulp.src(dirs.src+'/less/*.less')
+    .pipe(less())
+    .pipe(gulp.dest(dirs.dist));
 });
 
 
@@ -45,8 +52,8 @@ gulp.task('clean', function(done) {
 gulp.task('build', function(done) {
     runSequence(
         ['clean'],
-        'concat:js',
-        'compress:js',
+        'less',
+        'browserify-build',
         done);
 });
 
