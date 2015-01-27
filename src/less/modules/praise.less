@@ -17,27 +17,83 @@
           animation-duration: 1s;
 }
 
+@-webkit-keyframes zoomOutBig {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(3, 3, 3);
+            transform: scale3d(3, 3, 3);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes bounceIn {
+  0%, 20%, 40%, 60%, 80%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+            transform: scale3d(.3, .3, .3);
+  }
+
+  20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+            transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(.9, .9, .9);
+            transform: scale3d(.9, .9, .9);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+            transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    -webkit-transform: scale3d(.97, .97, .97);
+            transform: scale3d(.97, .97, .97);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+
+
 //点赞
 .praise-img{
-	background:url(img/praise.png) no-repeat center;
-	background-size: 50px auto;
-	display: inline-block;
-	width: 22px;
-	height: 17px;
-	vertical-align: middle;
-	padding-left: 15px;
-	background-position: 5px -97px;
+background: url(img/praise.png) no-repeat center;
+background-size: 15px auto;
+display: inline-block;
+width: 22px;
+height: 17px;
+vertical-align: middle;
+background-position: 5px -43px;
 }
 
 .no-praise-img{
-	background:url(img/praise.png) no-repeat center;
-	background-size: 50px auto;
-	display: inline-block;
-	width: 22px;
-	height: 17px;
-	vertical-align: middle;
-	padding-left: 15px;
-	background-position: 5px -115px;
+background: url(img/praise.png) no-repeat center;
+background-size: 15px auto;
+display: inline-block;
+width: 22px;
+height: 17px;
+vertical-align: middle;
+background-position: 5px -65px;
 }
 
 

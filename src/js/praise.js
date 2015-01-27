@@ -1,14 +1,14 @@
-var $ = require('Zepto');
+var $ = require('./zepto');
 
 var ANIMATEDEND = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 
 function Praise(elem) {
     elem = $(elem);
-    $(document).on('click', elem, function(e) {
+    $(elem).on('click',function(e) {
         e.preventDefault();
         elem.toggleClass("praise-img");
         elem.toggleClass("no-praise-img");
-        elem.addClass('animated bounceIn').one(ANIMATEDEND, function() {
+        elem.addClass('animated bounceIn').on(ANIMATEDEND, function() {
             $(this).removeClass('animated bounceIn');
         });
     })
