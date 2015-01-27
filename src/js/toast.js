@@ -1,5 +1,5 @@
-var $ = require('zepto');
-var Overlay = require('overlay');
+var $ = require('./zepto');
+var Overlay = require('./overlay');
 
 var AUTOTIME = 2000;
 var ZINDEX = 10000;

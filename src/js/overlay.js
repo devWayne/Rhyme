@@ -1,4 +1,6 @@
-var $= require('zepto');
+var $= require('./zepto');
+var Event = require('./event');
+
 
 var createOverlay = function(zindex){
     var CSS = {
@@ -52,6 +54,10 @@ Overlay.prototype.hide = function(){
     this.$el.hide();
     this.trigger('hide');
 };
+
+//扩展Event
+Event.extendTo(Overlay.prototype);
+
 module.exports = Overlay;
 
 
