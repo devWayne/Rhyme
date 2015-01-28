@@ -1,17 +1,17 @@
 var $=require('zepto');    
 function MoveLoad(loadEl,callback) {
+	
         var lock = false;
-        var page = 2;
         var loadEl = $(loadEl);
 
         // 状态切换
         function _switcher(flag) {
             if (flag) {
                 lock = true;
-                loadEl.removeClass("Hide");
+                loadEl.show();
             } else {
                 lock = false;
-                loadEl.addClass("Hide");
+                loadEl.hide();
             }
         }
 
