@@ -3,7 +3,7 @@ var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
 var pkg = require('./package.json');
 var dirs = pkg['h5bp-configs'].directories;
-var less=require('gulp-less');
+var less = require('gulp-less');
 var _browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var _ = require('lodash');
@@ -16,12 +16,9 @@ var browserify = function(opt) {
 
 gulp.task('browserify-build', function() {
     var b = browserify();
-       b.add('./src/js/overlay.js');
-    b.add('./src/js/toast.js');
-     b.add('./src/js/zepto.js');
-      b.add('./src/js/index.js');
+    b.add('./src/js/index.js');
     return b.bundle()
-        .pipe(source('modules.js'))
+        .pipe(source('index.js'))
         .pipe(gulp.dest(dirs.dist))
 });
 
@@ -33,15 +30,15 @@ gulp.task('jshint', function() {
         .pipe(plugins.jshint.reporter('jshint-stylish'))
 });
 
-gulp.task('img', function () {
-    return gulp.src(dirs.src+'/less/img/**')
-               .pipe(gulp.dest(dirs.dist+'/img'));
+gulp.task('img', function() {
+    return gulp.src(dirs.src + '/less/img/**')
+        .pipe(gulp.dest(dirs.dist + '/img'));
 });
 
-gulp.task('less',function(){
-    gulp.src(dirs.src+'/less/*.less')
-    .pipe(less())
-    .pipe(gulp.dest(dirs.dist));
+gulp.task('less', function() {
+    gulp.src(dirs.src + '/less/*.less')
+        .pipe(less())
+        .pipe(gulp.dest(dirs.dist));
 });
 
 
@@ -59,7 +56,7 @@ gulp.task('build', function(done) {
     runSequence(
         ['clean'],
         'less',
-	'img',
+        'img',
         'browserify-build',
         done);
 });
