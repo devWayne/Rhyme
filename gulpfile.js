@@ -36,9 +36,9 @@ gulp.task('img', function() {
 });
 
 gulp.task('less', function() {
-    gulp.src(dirs.src + '/less/*.less')
+    gulp.src(dirs.src + '/less/**/*.less')
         .pipe(less())
-        .pipe(gulp.dest(dirs.dist));
+        .pipe(gulp.dest(dirs.dist+'/css'));
 });
 
 

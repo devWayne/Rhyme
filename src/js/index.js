@@ -2,6 +2,9 @@ Overlay = require('./modules/overlay');
 Toast = require('./modules/toast');
 Praise = require('./modules/praise');
 Confirm = require('./modules/confirm');
+ScrollToTop = require('./modules/scrolltop');
+$=require('./modules/zepto');
+
 //Main
 function main() {
     Praise.like('.J_icon_like');
@@ -20,5 +23,17 @@ function main() {
     });
 
 }
+
+$('#topbtn').click(function(e) {
+    e.preventDefault();
+    ScrollToTop(window);
+});
+
+
+  $('#topbtn').scroll(function() {
+        console.log($(this).scrollTop());
+   });
+
+
 
 main();
