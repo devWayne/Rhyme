@@ -3,8 +3,8 @@ var $ = require("./zepto");
 // which is probably what you want
 var scrollToTopInProgress = false
 
-function ScrollToTop(position,div) {
-    if(!div) div=window;
+function ScrollToTop(position,_div) {
+    var div = _div || window;
     var $div = $(div),
         targetY = position || 0,
         initialY = $div.scrollTop(),

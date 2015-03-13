@@ -6,6 +6,8 @@ Popup = require('./modules/popup');
 ScrollToTop = require('./modules/scrolltop');
 $ = require('./modules/zepto');
 
+require("babel/register")
+
 //Main
 function main() {
     Praise.like('.J_icon_like');

@@ -8,18 +8,24 @@ var _browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var _ = require('lodash');
 
+var babel = require('gulp-babel');
+var babelify = require("babelify");
+
+
 var browserify = function(opt) {
     return _browserify(_.extend({
-        bundleExternal: false
+        bundleExternal: true
     }, opt));
 };
 
 gulp.task('browserify-build', function() {
     var b = browserify();
     b.add('./src/js/index.js');
-    return b.bundle()
+    return b
+	.transform(babelify)
+	.bundle()
         .pipe(source('index.js'))
-        .pipe(gulp.dest(dirs.dist))
+        .pipe(gulp.dest(dirs.dist+'/js'))
 });
 
 gulp.task('jshint', function() {
