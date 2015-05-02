@@ -16,11 +16,6 @@ export default class Popup {
 		//this.EL=this.opt.container.appendChild(dom);
 		//this.bindEvent();
 	}
-
-	buildHtml(text){
-		return ''
-	}
-
 	remove(){
 		this.OL.hide();
 		this.EL.parentNode.removeChild(this.EL);

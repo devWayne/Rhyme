@@ -36,7 +36,7 @@ export default class Toast extends Popup {
 		let dom=document.createElement('div');
 		dom.innerHTML=this.buildHtml(this.opt.text)
 
-		//set Toast Css
+		//set Toast Csså
 		for (var key in cssEL){
 		setCss.call(dom,key,cssEL[key]);
 		}
@@ -44,12 +44,9 @@ export default class Toast extends Popup {
 		let domHeight=dom.getBoundingClientRect().height,
 		domWidth=dom.getBoundingClientRect().width;
 		setCss.call(this.EL,'margin','-'+domHeight/2+'px 0 0 -'+domWidth/2+'px');
-	
 		this.bindEvent(this.EL);
 		this.bindEvent(this.OL.el);
-		var timer = setTimeout(function(){
-        		super.remove();
-    		},this.opt.time);
+		var timer = setTimeout(()=>this.remove(),this.opt.time);
 	}
 
 	buildHtml(text){
